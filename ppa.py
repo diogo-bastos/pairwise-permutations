@@ -22,11 +22,17 @@ def calculate_feature_importances(df_input, df_corr, output_data, n_feature_impo
     permutation_importances = [None for j in range(0, df_input.shape[1])]
 
     train_data_ratio = 1 - train_test_ratio
+    j = 0
     for index, row in df_corr.iterrows():
+        i = 0
         for item in row.iteritems():
-            if np.abs(item[1]) > corr_threshold:
-                permutations_to_compute.append((index, item))
 
+            if i <= j:
+                if np.abs(item[1]) > corr_threshold and item:
+                    permutations_to_compute.append((index, item))
+
+            i += 1
+        j += 1
     for i in np.arange(0, n_feature_importance_runs):
         print(f'permutation run number: {i + 1}')
         # Permute the variable pairs here
@@ -57,11 +63,17 @@ def calculate_feature_importances(df_input, df_corr, output_data, n_feature_impo
         denominator = 0
 
         for index2, vector2 in enumerate(vector):
-            if scores_perm_avg[index][index2] is not None:
+            if index == index2 and scores_perm_avg[index][index2] is not None:
+                permutation_importances[index] += \
+                    np.abs(df_corr[df_input.columns[index]][index2]) * (
+                            baseline - scores_perm_avg[index][index2])
+
+            elif scores_perm_avg[index][index2] is not None:
                 permutation_importances[index] += \
                     np.abs(df_corr[df_input.columns[index]][index2]) * (
                             baseline - scores_perm_avg[index][index2])/2
-                denominator += np.abs(df_corr[df_input.columns[index]][index2])
+
+            denominator += np.abs(df_corr[df_input.columns[index]][index2])
 
         if denominator > 1:
             permutation_importances[index] /= denominator
@@ -129,4 +141,8 @@ def calculate_feature_permutations(output_data, item, index, df_input, scores_pe
     if scores_perm[matrix_index1][matrix_index2] is None:
         scores_perm[matrix_index1][matrix_index2] = []
 
+    if scores_perm[matrix_index2][matrix_index1] is None:
+        scores_perm[matrix_index2][matrix_index1] = []
+
     scores_perm[matrix_index1][matrix_index2].append(result)
+    scores_perm[matrix_index2][matrix_index1].append(result)

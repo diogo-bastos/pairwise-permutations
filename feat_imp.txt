@@ -1,31 +1,31 @@
 FeatName	RelFeatImp
-worst concavity	-60.25
-mean concavity	-1.5
-concavity error	3.7
-symmetry error	6.43
-mean symmetry	8.98
-mean concave points	13.82
-area error	14.08
-worst symmetry	14.94
-compactness error	15.15
-smoothness error	16.45
-worst compactness	18.06
-worst perimeter	18.8
-mean compactness	20.9
-perimeter error	24.93
-concave points error	25.13
-mean fractal dimension	25.58
-mean perimeter	26.24
-worst radius	29.09
-mean smoothness	29.31
-radius error	30.37
-mean area	43.12
-texture error	43.33
-fractal dimension error	48.61
-worst area	49.77
-worst fractal dimension	50.77
-worst smoothness	62.63
-worst concave points	72.7
-mean radius	86.0
-mean texture	96.18
-worst texture	100.0
+worst concavity	-90.24
+mean concavity	-3.49
+symmetry error	1.93
+concavity error	2.07
+smoothness error	8.3
+mean symmetry	8.7
+mean concave points	17.65
+area error	17.83
+mean fractal dimension	18.13
+compactness error	19.73
+worst perimeter	21.14
+worst symmetry	21.22
+concave points error	21.43
+mean perimeter	22.64
+texture error	24.51
+worst compactness	24.68
+mean compactness	29.7
+worst radius	31.38
+radius error	31.82
+mean smoothness	33.52
+perimeter error	39.24
+mean area	42.83
+fractal dimension error	43.52
+mean texture	51.82
+worst texture	52.24
+worst fractal dimension	65.44
+worst area	67.45
+worst smoothness	73.95
+worst concave points	87.84
+mean radius	100.0
