@@ -145,4 +145,6 @@ def calculate_feature_permutations(output_data, item, index, df_input, scores_pe
         scores_perm[matrix_index2][matrix_index1] = []
 
     scores_perm[matrix_index1][matrix_index2].append(result)
-    scores_perm[matrix_index2][matrix_index1].append(result)
+
+    if matrix_index1 != matrix_index2:
+        scores_perm[matrix_index2][matrix_index1].append(result)
